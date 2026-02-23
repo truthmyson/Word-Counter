@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Word Counter</title>
+        <link rel="stylesheet" href="./scripts/base.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Upload a File to Count Words</h1>
+            <form id="uploadForm">
+                <input type="file" id="fileInput" accept=".txt,.pdf,.docx,.doc,.csv" required>
+                <button type="submit">Upload and Count</button>
+            </form>
+            <div id="result" class="result"></div>
+        </div>
+
+        <script src="./scripts/base.js"></script>
+    </body>
+
+</html>
