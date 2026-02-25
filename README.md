@@ -19,14 +19,17 @@ Users can upload files through the UI, and the backend processes them to return 
 ```text
 Word-Counter/
 │
-├── app.py              # Flask backend entry point
-├── base.html       # Frontend UI
-├── count_words.py
-├── file_manager.py
-├── static/
-│   ├── base.css       # CSS styling
-│   └── base.js       # JavaScript logic
-├── requirements.txt    # Python dependencies
+├── src/
+│   ├── app.py              # Flask backend entry point
+│   ├── requirements.txt    # Python dependencies
+│   ├── file_manager.py
+│   └── count_words.py
+├── frontend/
+│   ├── templates/
+│      └── base.html       # Frontend UI
+│   ├── scripts/
+│      ├── base.css       # CSS styling
+│      └── base.js       # JavaScript logic
 └── README.md           # Project documentation
 ```
 ---
@@ -37,20 +40,24 @@ Word-Counter/
    ```bash
    git clone https://github.com/truthmyson/Word-Counter.git
    cd Word-Counter
+   ```
 2. Create a virtual environment (recommended)
    ```bash
    python -m venv venv
    source venv/bin/activate   # On Linux/Mac
    venv\Scripts\activate      # On Windows
+   ```
 
 3. Install dependencies
    ```bash
-   pip install -r requirements.txt
+   pip install -r 'src/requirements.txt'
+   ```
+   
 ---
 ## Usage
 1. start the flask backend:
    ```bash
-   python app.py
+   python 'src/app.py'
 2. Open the frontend by runing the base.html file
 3. Upload a file and receive a json response
    Example response:
@@ -65,12 +72,39 @@ Word-Counter/
           "response_error": 200
         }
       }
-
----
-## 🛠 Development Mode
-This project currently runs in development mode only.
-For production deployment, additional configuration (Docker, Gunicorn, etc.) would be required.
+   ```
+   
 ---
 ## 📸 Screenshots
 
 ![App Screenshot](static/ui.png)
+---
+## 🚀 Running Word Counter with Docker
+1. 📥 Pull the Image
+   ```bash
+   docker pull truthmyson/wordcounter-frontend:latest
+   docker pull truthmyson/wordcounter-backend:latest
+   ```
+2.  ▶️ Run the Containers
+    backend (flask Api)
+    ```bash
+    docker run -d --name wordcounter-backend -p 5000:5000 truthmyson/wordcounter-backend:latest
+    ```
+    frontend(Nginx)
+    ```bash
+    docker run -d --name wordcounter-frontend -p 80:80 truthmyson/wordcounter-frontend:latest
+    ```
+3. ✅ Usage
+   open your browser and enter the url
+   ```bash
+   http://localhost:80
+   ```
+   or
+   ```bash
+   http://localhost
+   ```
+   
+NOTE: Make sure both containers are running
+```bash
+docker ps
+```
