@@ -108,3 +108,5 @@ NOTE: Make sure both containers are running
 ```bash
 docker ps
 ```
+---
+DON'T forget to manually close the the containers because they would be running in detached mood "background".
