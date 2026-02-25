@@ -1,5 +1,5 @@
 // Adjust the API endpoint to match your Flask backend
-const API_URL = 'http://127.0.0.1:5000/upload'; // Using the base64 endpoint
+const API_URL = '/api/upload'; // Using the base64 endpoint
 // const API_URL = '/upload-simple'; // Alternative simpler endpoint
 
 const form = document.getElementById('uploadForm');
